@@ -18,8 +18,7 @@ A compact, high-accuracy CNN for MNIST digit classification.
 
 ## 🏗️ Model Architecture
 
-<details>
-<summary>Layer-wise Parameter Details</summary>
+### Layer-wise Parameter Details
 
 | Layer (type)         | Params | Details |
 |----------------------|-------:|---------|
@@ -38,8 +37,6 @@ A compact, high-accuracy CNN for MNIST digit classification.
 | **gap (AdaptiveAvgPool2d)** | 0 | output size 1 |
 | **fc (Linear)** | 410 | 40→10, bias |
 | **Total** | **18214** |  |
-
-</details>
 
 ---
 
@@ -61,8 +58,7 @@ A compact, high-accuracy CNN for MNIST digit classification.
 | 15    | 98.97%    | 99.39%   |
 | 20    | 99.03%    | 99.37%   |
 
-<details>
-<summary>Full Training Log</summary>
+### Full Training Log
 
 ```
 Test set: Average loss: 0.0001, Accuracy: 9802/10000 (98.02%)
@@ -162,7 +158,6 @@ Train Loss=0.1812 Accuracy=99.03: 100%|██████████| 938/938 [
 
 Test set: Average loss: 0.0000, Accuracy: 9937/10000 (99.37%)
 ```
-</details>
 
 ---
 
