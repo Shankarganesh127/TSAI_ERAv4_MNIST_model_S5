@@ -13,6 +13,7 @@ A compact, high-accuracy CNN for MNIST digit classification.
 | `main.py`                        | Python script version                       |
 | `ERAv4_MNIST_model_experiments.ipynb` | Experiments notebook                  |
 | `pyproject.toml`                 | Python requirements                         |
+| `requirements.txt`               | Package requirements for easy setup         |
 
 ---
 
@@ -161,18 +162,47 @@ Test set: Average loss: 0.0000, Accuracy: 9937/10000 (99.37%)
 
 ---
 
-## 📝 How to Run
+## 📝 Instructions to Run
 
-```bash
-# Install requirements
-pip install -r requirements.txt
+1. **Install Python 3.7+** (recommended: Python 3.8 or newer)
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the notebook:**
+   ```bash
+   jupyter notebook ERAv4_MNIST_model_S5.ipynb
+   ```
+   - Or open in VS Code and run interactively.
+4. **Run as a script:**
+   ```bash
+   python main.py
+   ```
 
-# Run notebook
-jupyter notebook ERAv4_MNIST_model_S5.ipynb
+### Optional: Run in UV Python Environment
 
-# Or run as script
-python main.py
-```
+1. **Install UV (if not already installed):**
+   ```bash
+   pip install uv
+   ```
+2. **Create a new UV virtual environment:**
+   ```bash
+   uv venv .venv
+   ```
+3. **Activate the UV environment:**
+   - On Windows:
+     ```bash
+     .venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source .venv/bin/activate
+     ```
+4. **Install dependencies using UV:**
+   ```bash
+   uv pip install -r requirements.txt
+   ```
+5. **Run the notebook or script as above.**
 
 ---
 
