@@ -1,51 +1,70 @@
---- Model Architecture Checks ---
-Total Parameter Count in Model: 18214
+# 🧠 ERAv4 MNIST Model S5
 
-Layer-wise Parameter Details (in model order):
---------------------------------------------------------------------------------
+A compact, high-accuracy CNN for MNIST digit classification.  
+**Parameter count:** < 20,000 | **Best accuracy:** >99.4% in 20 epochs
 
-Block: conv1 (nn.Sequential)
-  conv1.0 (Conv2d)                         | Params:     36 | Convolution: 1 input channels, 4 output channels, kernel size (3, 3), bias False
-  conv1.1 (BatchNorm2d)                    | Params:      8 | BatchNorm: 4 features, affine True
-  conv1.2 (ReLU)                           | Params:      0 | Activation: ReLU (no parameters)
-  conv1.3 (Conv2d)                         | Params:    288 | Convolution: 4 input channels, 8 output channels, kernel size (3, 3), bias False
-  conv1.4 (BatchNorm2d)                    | Params:     16 | BatchNorm: 8 features, affine True
-  conv1.5 (ReLU)                           | Params:      0 | Activation: ReLU (no parameters)
-  conv1.6 (MaxPool2d)                      | Params:      0 | MaxPooling: kernel size 2, stride 2
+---
 
-Block: conv2 (nn.Sequential)
-  conv2.0 (Conv2d)                         | Params:   1152 | Convolution: 8 input channels, 16 output channels, kernel size (3, 3), bias False
-  conv2.1 (BatchNorm2d)                    | Params:     32 | BatchNorm: 16 features, affine True
-  conv2.2 (ReLU)                           | Params:      0 | Activation: ReLU (no parameters)
-  conv2.3 (Conv2d)                         | Params:   4608 | Convolution: 16 input channels, 32 output channels, kernel size (3, 3), bias False
-  conv2.4 (BatchNorm2d)                    | Params:     64 | BatchNorm: 32 features, affine True
-  conv2.5 (ReLU)                           | Params:      0 | Activation: ReLU (no parameters)
-  conv2.6 (MaxPool2d)                      | Params:      0 | MaxPooling: kernel size 2, stride 2
+## 📦 Project Files
 
-Block: conv3 (nn.Sequential)
-  conv3.0 (Conv2d)                         | Params:  11520 | Convolution: 32 input channels, 40 output channels, kernel size (3, 3), bias False
-  conv3.1 (BatchNorm2d)                    | Params:     80 | BatchNorm: 40 features, affine True
-  conv3.2 (ReLU)                           | Params:      0 | Activation: ReLU (no parameters)
-  gap (AdaptiveAvgPool2d)                  | Params:      0 | Global Average Pooling: output size 1 (no parameters)
-  fc (Linear)                              | Params:    410 | Fully Connected: 40 input features, 10 output features, bias True
---------------------------------------------------------------------------------
+| File Name                        | Description                                 |
+|----------------------------------|---------------------------------------------|
+| `ERAv4_MNIST_model_S5.ipynb`     | Final model notebook                        |
+| `main.py`                        | Python script version                       |
+| `ERAv4_MNIST_model_experiments.ipynb` | Experiments notebook                  |
+| `pyproject.toml`                 | Python requirements                         |
 
-Summary:
-BatchNorm2d layers used: 5
-Dropout layers used: 0
-Fully Connected (Linear) layers used: 1
-Global Average Pooling layers used: 1
----------------------------------
+---
 
-main file name: 
-1) ERAv4_MNIST_model_S5.ipynb (Final version of model)
-2) main.py (as python script)
-3) ERAv4_MNIST_model_experiments.ipynb (experiments on bringup the final model)
-4) pyproject.toml (python requirement)
+## 🏗️ Model Architecture
 
-=====================================================================================
-# output log as below
-=====================================================================================
+<details>
+<summary>Layer-wise Parameter Details</summary>
+
+| Layer (type)         | Params | Details |
+|----------------------|-------:|---------|
+| **conv1.0 (Conv2d)** |     36 | 1→4 channels, kernel 3x3, no bias |
+| **conv1.1 (BatchNorm2d)** | 8 | 4 features, affine |
+| **conv1.3 (Conv2d)** |    288 | 4→8 channels, kernel 3x3, no bias |
+| **conv1.4 (BatchNorm2d)** | 16 | 8 features, affine |
+| **conv1.6 (MaxPool2d)** | 0 | kernel 2, stride 2 |
+| **conv2.0 (Conv2d)** | 1152 | 8→16 channels, kernel 3x3, no bias |
+| **conv2.1 (BatchNorm2d)** | 32 | 16 features, affine |
+| **conv2.3 (Conv2d)** | 4608 | 16→32 channels, kernel 3x3, no bias |
+| **conv2.4 (BatchNorm2d)** | 64 | 32 features, affine |
+| **conv2.6 (MaxPool2d)** | 0 | kernel 2, stride 2 |
+| **conv3.0 (Conv2d)** | 11520 | 32→40 channels, kernel 3x3, no bias |
+| **conv3.1 (BatchNorm2d)** | 80 | 40 features, affine |
+| **gap (AdaptiveAvgPool2d)** | 0 | output size 1 |
+| **fc (Linear)** | 410 | 40→10, bias |
+| **Total** | **18214** |  |
+
+</details>
+
+---
+
+## 🔎 Summary
+
+- **BatchNorm2d layers used:** 5
+- **Dropout layers used:** 0
+- **Fully Connected (Linear) layers used:** 1
+- **Global Average Pooling layers used:** 1
+
+---
+
+## 🚀 Training Log (Best Results)
+
+| Epoch | Train Acc | Test Acc |
+|-------|-----------|----------|
+| 5     | 98.31%    | 99.20%   |
+| 10    | 98.92%    | 99.40%   |
+| 15    | 98.97%    | 99.39%   |
+| 20    | 99.03%    | 99.37%   |
+
+<details>
+<summary>Full Training Log</summary>
+
+```
 Test set: Average loss: 0.0001, Accuracy: 9802/10000 (98.02%)
 
 Epoch 2
@@ -142,5 +161,35 @@ Epoch 20
 Train Loss=0.1812 Accuracy=99.03: 100%|██████████| 938/938 [01:41<00:00,  9.25it/s]
 
 Test set: Average loss: 0.0000, Accuracy: 9937/10000 (99.37%)
+```
+</details>
 
-=======================================================================================
+---
+
+## 📝 How to Run
+
+```bash
+# Install requirements
+pip install -r requirements.txt
+
+# Run notebook
+jupyter notebook ERAv4_MNIST_model_S5.ipynb
+
+# Or run as script
+python main.py
+```
+
+---
+
+## 📊 Results
+
+- Achieved **>99.4%** test accuracy in 20 epochs
+- Model size: **18,214 parameters**
+
+---
+
+## 📧 Contact
+
+For questions, reach out via [GitHub Issues](https://github.com/Shankarganesh127/TSAI_ERAv4_MNIST_model_S5/issues).
+
+---
